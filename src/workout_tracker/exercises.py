@@ -49,3 +49,53 @@ class Exercise:
         # TODO: Return a string like "ExerciseName: 100 calories"
         # Use self.calculate_calories() to get the calories
         return f"{self.name}: {self.calculate_calories} calories"
+class CardioExercise(Exercise):
+    """Cardio exercise with distance and time tracking.
+    
+    Attributes:
+        name (str): Exercise name
+        date (str): Date performed
+        distance (float): Distance covered in miles
+        duration (float): Time spent in minutes
+    """
+    
+    def __init__(self, name: str, distance: float, duration: float, date: str = None):
+        """Initialize a CardioExercise.
+        
+        Args:
+            name: Exercise name (e.g., "Running", "Cycling")
+            distance: Distance covered in miles
+            duration: Time spent in minutes
+            date: Date performed (optional)
+        """
+        # TODO: Call parent class __init__ with super()
+        super().__init__(name,date)
+        self.distance = distance
+        self.duration = duration
+        # TODO: Set self.distance
+        # TODO: Set self.duration
+        pass
+    
+    def calculate_calories(self) -> float:
+        """Calculate calories burned based on distance.
+        
+        Formula: distance * 100
+        
+        Returns:
+            float: Estimated calories burned
+        """
+        return self.distance*100
+    
+    def get_duration(self) -> float:
+        """Get the duration of the cardio exercise.
+        
+        Returns:
+            float: Duration in minutes
+        """
+        return self.duration
+    
+    def __str__(self) -> str:
+        """Return detailed string representation."""
+        # TODO: Return something like "Running (3.5 miles, 30 min): 350 calories"
+        # Include self.name, self.distance, self.duration, and self.calculate_calories()
+        return f"{self.name} ({self.distance} miles, {self.duration} min): {self.calculate_calories} calories"
