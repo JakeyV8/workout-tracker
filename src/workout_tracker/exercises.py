@@ -113,3 +113,22 @@ class StrengthExercise(Exercise):
     
     def __str__(self) -> str:
         return f"{self.name} ({self.weight} lbs x {self.reps} reps x {self.sets} sets): {self.calculate_calories()} calories"
+class FlexibilityExercise(Exercise):    
+    def __init__(self, name: str, duration: float, intensity: str = 'medium',date: str = None):
+        super().__init__(name,date)
+        self.intensity = intensity.lower()
+        if self.intensity != 'low' and self.intensity != 'medium' and self.intensity != 'high':
+            raise ValueError('inncorrect intensity level')
+        intensity_map = {'low':1.0,'medium':1.5,"high":2.0}
+        self.intensity_multiplier = intensity_map[self.intensity]
+        self.duration = duration
+        
+    
+    def calculate_calories(self) -> float:
+        return self.duration*2.5*self.intensity_multiplier
+    
+    def get_duration(self) -> float:
+        return self.duration
+    
+    def __str__(self) -> str:
+        return f"{self.name} ({self.duration} min, {self.intensity} intensity): {self.calculate_calories()} calories"
