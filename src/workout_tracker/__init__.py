@@ -1,6 +1,6 @@
 """Workout Tracker - A simple OOP-based workout tracking system."""
 
-from workout_tracker.exercises import Exercise, CardioExercise
+from workout_tracker.exercises import Exercise, CardioExercise,StrengthExercise
 
 __version__ = "0.1.0"
 

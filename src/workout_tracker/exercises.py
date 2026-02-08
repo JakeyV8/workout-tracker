@@ -74,7 +74,6 @@ class CardioExercise(Exercise):
         self.duration = duration
         # TODO: Set self.distance
         # TODO: Set self.duration
-        pass
     
     def calculate_calories(self) -> float:
         """Calculate calories burned based on distance.
@@ -99,3 +98,18 @@ class CardioExercise(Exercise):
         # TODO: Return something like "Running (3.5 miles, 30 min): 350 calories"
         # Include self.name, self.distance, self.duration, and self.calculate_calories()
         return f"{self.name} ({self.distance} miles, {self.duration} min): {self.calculate_calories()} calories"
+class StrengthExercise(Exercise):    
+    def __init__(self, name: str, weight: float, reps: int, sets: int ,date: str = None):
+        super().__init__(name,date)
+        self.reps = reps
+        self.sets = sets
+        self.weight = weight
+    
+    def calculate_calories(self) -> float:
+        return self.weight*self.reps*self.sets*0.05
+    
+    def get_duration(self) -> float:
+        return self.sets*3
+    
+    def __str__(self) -> str:
+        return f"{self.name} ({self.weight} lbs x {self.reps} reps x {self.sets} sets): {self.calculate_calories()} calories"
