@@ -19,8 +19,10 @@ class Exercise:
         self.name = name
         if date == None:
             self.date = datetime.now().strftime("%Y-%m-%d")
+        elif isinstance(date,str):
+            self.date = date
         else:
-            self.date = datetime.strftime(date,"%Y-%m-%d")
+            self.date = date.strftime(date,"%Y-%m-%d")
     
     def calculate_calories(self) -> float:
         """Calculate calories burned for this exercise.
